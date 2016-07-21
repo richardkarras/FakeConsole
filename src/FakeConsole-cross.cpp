@@ -1,9 +1,7 @@
 
-#include <stdio.h>
 #include <string>
 #include <sstream>
-#include "console.h"
-#include "simpio.h"
+#include <iostream>
 
 using namespace std;
 void console();
@@ -72,7 +70,14 @@ int main()
 				
 			}
 			if (user_pass == password)
-				console();
+            {
+                console();
+                for (pass_fail = 0; pass_fail < 100; pass_fail++)
+                {
+                    cout << "\n";
+                }
+            }
+            
 		} while (user_pass != "e x i t");
 	}
 
@@ -112,7 +117,6 @@ void console()
 
 void graphic_display()
 {
-
 	cout << "MEMORADNDUM FOR HQ USAF/WB \nOctober 30th 1981\n" << endl;
 	cout << "FROM: 	SECDEF\n		1600 Pennsylvania Avenue\n		Washington D.C. 20330 - 1250\n" << endl;
 	cout << "SUBJECT: Developmental plans of project E.S.C.R.M\n\n" << endl;
@@ -124,6 +128,7 @@ void graphic_display()
 	cout << "6. The current time table sets the completion of the device on November 20th at 06:00 \nhours, however with current delays we may not see completion until next spring. All \nfunding has been diverted to Project E.S.C.R.M to help rectify this.\n" << endl;
 	cout << "	1A: Officers note, we have changed the control password on the weapons cage to \nthe following 06751 going forward the control password will change every month, new \npasswords will be distributed by courier to all authorized officers." << endl;
 	cout << "Report Complete \nSergeant Louis Benton \nUSAF - Wallaby Base" << endl;
-    
+    cout << "\nPress return to continue." << endl;
+    system("read");
     return;
 }
