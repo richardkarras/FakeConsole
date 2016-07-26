@@ -128,7 +128,9 @@ void graphic_display()
 	cout << "6. The current time table sets the completion of the device on November 20th at 06:00 \nhours, however with current delays we may not see completion until next spring. All \nfunding has been diverted to Project E.S.C.R.M to help rectify this.\n" << endl;
 	cout << "	1A: Officers note, we have changed the control password on the weapons cage to \nthe following 06751 going forward the control password will change every month, new \npasswords will be distributed by courier to all authorized officers." << endl;
 	cout << "Report Complete \nSergeant Louis Benton \nUSAF - Wallaby Base" << endl;
-    cout << "\nPress return to continue." << endl;
-    system("read");
+    do
+    {
+        cout << '\n' << "Press a key to continue...";
+    } while (cin.get() != '\n');
     return;
 }
