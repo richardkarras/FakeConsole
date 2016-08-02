@@ -1,9 +1,8 @@
- 
+﻿ 
 #include <stdio.h>
 #include <string>
 #include <sstream>
-#include "console.h"
-#include "simpio.h"
+#include <iostream>
 
 using namespace std;
 void console();
@@ -36,44 +35,33 @@ int main()
 		screenWipe();
 		
 		//ASCII output of breakout logo
-		cout << "vivvvrvvvrvrvrvrvrvrvrvrvvvrvrvrvrvvvrvrvrvrvrvrvrvrvrvrvrvrvrvrvvvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvrvvvvvrvrvrvrvrvvvvvrvvvvvvvrvrvrvrvvvr" << endl;
-		cout << "ULJjYjJJYjJjYjYjJjYuYjYjYuYjYjJjYuYuYjJjYjYjYjYjJjJuJjYuJjYJJuYjJJJuYjYuJjJjYjYjJjJJYJLjJuJjJJYJLJYuJuYjYJYjYjYuJjJuYjYuJjYuYjYuJuJuYjJJYjJjJJJjYjYjYY" << endl;
-		cout << "UYUuouUuouUuUuUuUuouUuUuouUuUuUuUuououououououUuUuUuouUuUuUuUuUuouououUuououououUuUuujjjoVNkkoouUuouUuUuouUuUuUuouUuUuouUuUuouUuUuUuUuUuUuUuououUuUuoj" << endl;
-		cout << "jJuuuuuuuujujuuUjujuuujujuuUjuuujuuuuuuUjujujujUuUuujujUuUjuuujujuuujUjUjujuuujujuLLvLJuoIruXZFouuuuuujuuuuUjUjuuujuuujUjujujuuuuujuuujujuuujUjUjUjUjj" << endl;
-		cout << "uLUjuuuuuJujujujuJujujujujuuujujujujuuujujujuuuuujuJujujuuuuujujujuJujuuuJuJujujuvvIOBBuS    ikXouujujujujujujuJujuJuJujujuuujuJuuuuujujujujujujujuuuY" << endl;
-		cout << "jJjujujuJujujujujujuJuJujujujuuuJujujujuJujuuujujujujujuuuuujujuJuJujujuJujujuuuvjMBMBXJJ      ISojujujuJujuuUjujuJujujujujuuuuUjuuUjujuuujUuujuuujujj" << endl;
-		cout << "uLuJJLYLYLJYuJuJuJuLYLYLJYJJuJujujJLJLYLYLJJuJuJuYYLJYujujujjLYLjJuJjLYLjJuuujuLYMBBZLLJokGEi   quuJuuuuUuoIkFSIIuUjujUuoUIUUjUuoUoUuuUUIoVoIoIUouUjuJ" << endl;
-		cout << "jYJjYYLYLLvLvLJujuLjLYLYLLvvvYJuJJYJLLLYLJJjJujuLJYYYYYujujuYjLYYJYYvJLYjUJujujLjBBBvvJuuooGj   PSuujujUoNNqSSFqNNIojuUXPNqXoUUFXNNqIoIPqENZNZNEkkuUjj" << endl;
-		cout << "ULjJBBBBBBBMGuLLuLuMBBBBBBBGSLLJYUBMBMBBBBBjJJuYYMBBBXvJujuvXBBBBjvvBMBBBUjjuJYrjBBMvvJjUoPOI   MNXuujoSNr       rNFUUXi    FIkr    Jqv          iXuuY" << endl;
-		cout << "uJLuBBBBMMBBMBXLYYLBBBBBBBBBBBJLvoMBBBBBBBBuYuJLuBBBBBvJjujLkBBBBJrNBBBBVLjuYjYvLBBMvvLjUJvVv   VuvVUuVP           PFVN     kFPr    YOi           Pujj" << endl;
-		cout << "uLJYBBBBUijBBBBJYLYMBMBFrLBBBBOvLuBBBBorLvYJuJjvNBBMBBUvujuvkBBBBvuBBBBVvYujLSBBBBBBMBBjVv         uVuNi    uZu    iNoN     qFNr    uqovIL    iVLJVuuY" << endl;
-		cout << "uLLJBBMBUirMMBBILYLBBBBSrrqBMBBYvuMBMBUvLJJuJuLLMBMBMBNvYuJLFBMBMvOBBBPvYuuuLkMBBBMBBBMBqOi        VoFX    iMNMi    kXN     Xkqv    JqoPGX    vBPFuUjj" << endl;
-		cout << "ULYLBBBBIiVBBBOvJLJBBMBIirOBBMOvvuBBBBUivLuJuJLoBBMXBBBvJjuvSBBMMEBMBqvLjJuJjvviNBMMBBMFv       uBGFIVk    iZVZi    kkE     qFNr    uSUuXu    rNojuuuL" << endl;
-		cout << "jLLJBBMBBBBBGUrLYYLBBBMOPMBBBBjLvuBBMBOOBELujjvGBBGYBBBVvjJLSBMMMBMBMYrjjuJuLVMOMBMBBovv           oIFk    iNVNi    kPN     XSPv    jPuuSo    iEuuuujj" << endl;
-		cout << "uLJYBMBBMMBMMEuvjLYBBMBMBMBMkvvJLuBBMMBBBMLJuvjMBBNrBMBZvJjvkMBMBBBMBGvLuuujYIBOBBMMBNvSr        iioVVX    iNIZi    XkZ     qVNr    ukUjXu    rqUjujuY" << endl;
-		cout << "jYLjBBMBuiYBBBBFvYLBMBBoSBBBLrYuvUBBMBILuuYuJvkBBBuiEBBBLLYLSBMMMXZBBBFvYujuJLrrqBMBBBPUP       rOFSuSX    iNFNi    SPN     Pkqv    jPuukU    iEuuuuJj" << endl;
-		cout << "ULYYBBBMSrrPBBBOLLYBBMBULMBBMvJjLjBBBBIrLYujJvMBBBNIMBBMXvjvkBBBBruMBBBLLjuJLSBBBMBMBMjLi          UVIX    iEIZi    kSE     NFNr    uSUuXu    rNojuuuJ" << endl;
-		cout << "uYLJMBBBVrrNBBMMvLLBBMBkiMBBMSvjvuMBMBUrLYYjvuBBMBBBBBMBOLLvFBMBMLrOMBMGvjjuLUqkOBMMMBMBMMNr    iFYFuFk    iGXOi    SSNi    NNZv    ukuUSo    iNuujujj" << endl;
-		cout << "ULYYBBBBVrUMBMBXLLJBBMBSrIBBBMLvLuBBBBorLLJLvPBMBGYLoBBMBjLvSBBBBLrjBBBMFvujjLYvZBBMMBBBMji     iJLVIUN     GMZ     NUNr    XMBi    qouuPu    rqojujuL" << endl;
-		cout << "uLLuMBBBBBBBBBGYLYYBBBBqrLMBBBZvvIBBBBMBBBBJvBBBBXrvvBBBBGvvXBBBBuvvEBBBBJLuvXBBBBBBBBOvo          oIoFI           VSUVP           vXUuuSu    iNuujuJJ" << endl;
-		cout << "uLjjBBBMBBBOZUvLjLuBBMBkLvNBBBBuLuBBMMBMBMBLVBBBBuLYvPBMBMJvXBBBBuYvuMBMBNJJYVBMBMMMBBMLFr  i i    oVjoPF         FXUjoFPi        LNIuuukY    iXUjuuuJ" << endl;
-		cout << "uYjJLLvLvLvLvLLuJuLLvLLJJjLLvLLjYjLLvvvLvLLJLJvLvJJjJLvLvjJjLLvLLJjjLLvLLuYuJJLLvLvLvLLjuSNENZNZNEXIuujoSZSjvvvuSZSojuuoFZkuvvrLoEXIuujuuVuVoooojuuujJ" << endl;
-		cout << "uLujjYjYjLjJjJujujuJjYjJujuYjYjJuJjLjLjYjYjJuYjYuJujuJjYjYujuYjYjJujuJJYuYujuJJYjLJYJLujuuUUouoUouUuuuuuouSXNPNkSUojujuuuUFkNPNXkoouujUjUUSSkVIuUjujuY" << endl;
-		cout << "uYuUuujUjUuUuUuUuUuuuujUuuuUjUuUjUjUjuuUjUjUuuuuuUjUjuuuuUjUjUuUuUuUuujuuUuuuUuUuujUjujujUuuuUuUuUuUuUuUjUuUuouUuuuUuUjUuUuUuououUuujUuUuUuUuUuUjUjUju" << endl;
-		cout << "ovYLYLJLJLJLYLJLJLYLJLJLJLYLJLJLYLJLYLYLJLJLJLYLYLYLYLJLYLJLYLYLYLJLJLJLYLYLJLJLYLJLYLYLYLYLJLJLJLYLJLJLJLJLYLJLJLJLYLYLJLYLYLJLJLJLJLYLJLJLYLYLYLYYJv" << endl;
+		cout << "******   *******   ********     **     **   **   *******   **     ** **********" << endl;
+		cout << "/*////** /**////** /**/////     ****   /**  **   **/////** /**    /**/////**///" << endl;
+		cout << "/*   /** /**   /** /**         **//**  /** **   **     //**/**    /**    /**" << endl;
+		cout << "/******  /*******  /*******   **  //** /****   /**      /**/**    /**    /**" << endl;
+		cout << "/*//// **/**///**  /**////   **********/**/**  /**      /**/**    /**    /**" << endl;
+		cout << "/*    /**/**  //** /**      /**//////**/**//** //**     ** /**    /**    /**" << endl;
+		cout << "/******* /**   //**/********/**     /**/** //** //*******  //*******     /**" << endl;
+		cout << "///////  //     // //////// //      // //   //   ///////    ///////      //" << endl;
 		do
 		{
 			
 			for (pass_fail = 1,user_pass = "default"; user_pass != password; pass_fail++)
 			{
-				cout << "\nSystem locked.  Enter user:  ";
+				cout << "\n☭System locked.  Enter user name:  ";
 				
 				getline(cin, user_pass);
 				
 				if (user_pass == "e x i t")
 					break;
-				
-				cout << "\n\nPassword has been entered incorrectly " << pass_fail << " times.";
+				if (user_pass == password)
+				{
+					console();
+				}
+				else
+				{
+					cout << "\n\n🔒Password has been entered incorrectly " << pass_fail << " times.";
+				}
 				
 			}
 			if (user_pass == password)
@@ -81,7 +69,7 @@ int main()
 		} while (user_pass != "e x i t");
 	}
 
-    return 0;
+    return 42;
     
 }
 
@@ -89,16 +77,18 @@ void console()
 {
     //Variables
     string con_input;
-           
-    while(1)
+	
+	cout << "\nFor command list type 'help' \n"; // To list the possible inputs, all non-listed inputs will result in an error message.
+	cout << "\n ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
+    
+	while(1)
     {
 		cout << "\nFor command list type 'help' \n"; // To list the possible inputs, all non-listed inputs will result in an error message.
-		cout << "\n ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
 		cout << "\n~"; // Linux/Unix style command shell, since Unix is older than DOS, but quite similar in useage - could be changed to C:\ or other drive letter as necessary.
 		getline (cin,con_input);
         
 		if (con_input == "help")
-			cout << "\n ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
+			cout << "\ntype ls for directory listing \ntype: write <file name> to print text to screen \ntype dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
 		else if (con_input == "ls")
 			cout << "\n\n Directory listing: \n secdoc.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
 		else if (con_input == "write secdoc.txt")
@@ -111,7 +101,7 @@ void console()
 		{
 			ext4900();
 		}
-		else if (con_input == "dial 0918")
+		else if (con_input == "dial 0918"||con_input == "dial 918")
 		{
 			ext0918();
 		}
@@ -135,7 +125,7 @@ void graphic_display()
 	cout << "2. The location of Project E.S.C.R.M is currently classified as Top Secret and only \nlevel 2 security clearance personnel are aware of its location. For security reasons \nthe location of Project E.S.C.R.M has been \nseparated into 4 documents which have been \nstored in Archive Room 2B, The records room is off limits to all personnel until \nfurther notice.\n" << endl;
 	cout << "3. According to recent assessments of project E.S.C.R.M we are well under our \nprojected time table. Preliminary reports suggest that BIG RED does not currently know \nof the existence of Project E.S.C.R.M and are preoccupied with the current Sweden \nincident.\n" << endl;
 	cout << "4. Currently Project E.S.C.R.M is being overseen by Stewart Littleton, one of the \nfinest minds in the world on rocketry and propulsion. He has set a very strict time \ntable and we have encountered some issues with supplying the required parts for him, \nwe hope to get back on schedule by mid month.\n" << endl;
-	cout << "5.  General Coulton has requested that he be contacted when Project E.S.C.R.M is at \n90% completion, he wishes to tour the facility to ensure everything is up to \nstandards. He can be reached at EXT 918 during normal business hours.\n" << endl;
+	cout << "5.  General Coulton has requested that he be contacted when Project E.S.C.R.M is at \n90% completion, he wishes to tour the facility to ensure everything is up to \nstandards. He can be reached at EXT 0918 during normal business hours.\n" << endl;
 	cout << "6. The current time table sets the completion of the device on November 20th at 06:00 \nhours, however with current delays we may not see completion until next spring. All \nfunding has been diverted to Project E.S.C.R.M to help rectify this.\n" << endl;
 	cout << "  1A: Officers note, we have changed the control password on the weapons cage to \nthe following 06751 going forward the control password will change every month, new \npasswords will be distributed by courier to all authorized officers." << endl;
 	cout << "Report Complete \nSergeant Louis Benton \nUSAF - Wallaby Base" << endl;
