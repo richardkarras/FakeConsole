@@ -48,7 +48,7 @@ int main()
 			
 			for (pass_fail = 1,user_pass = "default"; user_pass != password; pass_fail++)
 			{
-				cout << "\n☭System locked.  Enter user name:  ";
+				cout << "\nSystem locked.  Enter user's first name:  ";
 				
 				getline(cin, user_pass);
 				
@@ -60,7 +60,7 @@ int main()
 				}
 				else
 				{
-					cout << "\n\n🔒Password has been entered incorrectly " << pass_fail << " times.";
+					cout << "\n\nUser name not recognised " << pass_fail << " times.";
 				}
 				
 			}
@@ -79,7 +79,7 @@ void console()
     string con_input;
 	
 	cout << "\nFor command list type 'help' \n"; // To list the possible inputs, all non-listed inputs will result in an error message.
-	cout << "\n ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
+	cout << "\n type dir or ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
     
 	while(1)
     {
@@ -88,10 +88,10 @@ void console()
 		getline (cin,con_input);
         
 		if (con_input == "help")
-			cout << "\ntype ls for directory listing \ntype: write <file name> to print text to screen \ntype dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
-		else if (con_input == "ls")
-			cout << "\n\n Directory listing: \n secdoc.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
-		else if (con_input == "write secdoc.txt")
+			cout << "\n type dir or ls for directory listing \ntype: write <file name> to print text to screen \ntype dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
+		else if (con_input == "ls"||con_input == "dir")
+			cout << "\n\n Directory listing: \n weapondoc.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
+		else if (con_input == "write weapondoc.txt"||con_input=="write weapondoc")
 			graphic_display();
 		else if (con_input == "dial 7513")
 		{
@@ -131,7 +131,7 @@ void graphic_display()
 	cout << "Report Complete \nSergeant Louis Benton \nUSAF - Wallaby Base" << endl;
 	do
 	{
-		cout << "\n\nPress a key to continue..." << endl;
+		cout << "\n\nPress return to continue..." << endl;
 	} while (cin.get() != '\n');
 
 	screenWipe();
@@ -149,7 +149,7 @@ void ext7513()
 
 	do
 	{
-		cout << "\n\nPress a key to continue..." << endl;
+		cout << "\n\nPress return to continue..." << endl;
 	} while (cin.get() != '\n');
 	
 	screenWipe();
@@ -163,7 +163,7 @@ void ext4900()
 
 	do
 	{
-		cout << "\n\nPress a key to continue..." << endl;
+		cout << "\n\nPress return to continue..." << endl;
 	} while (cin.get() != '\n');
 
 	screenWipe();
@@ -177,7 +177,7 @@ void ext0918()
 	
 	do
 	{
-		cout << "\n\nPress a key to continue..." << endl;
+		cout << "\n\nPress return to continue..." << endl;
 	} while (cin.get() != '\n');
 
 	screenWipe();
@@ -191,7 +191,7 @@ void ext1925()
 	
 	do
 	{
-		cout << "\n\nPress a key to continue..." << endl;
+		cout << "\n\nPress return to continue..." << endl;
 	} while (cin.get() != '\n');
 
 	screenWipe();
