@@ -142,9 +142,10 @@ void ext7513()
 	screenWipe();
 	
 	cout << "\nColonel Jonston's travel itinerary:" << endl;
+	cout << "June 26-30: Travel to Miami re: Mission: Impossible" << endl;
 	cout << "July 3: Col J. Travel to Dallas with his wife to visit family." << endl;
 	cout << "July 7: Col J. New York re: PROJECT SWIPE" << endl;
-	cout << "July 10: Col J. Leaves New York, travels to San Francisco to complete the Miami discussions started in March of this year" << endl;
+	cout << "July 10: Col J. Leaves New York, travels to San Francisco to complete plans for Mission: Impossible" << endl;
 	cout << "July 18: Col J. FT HARRIS AIR FORCE BASE Dallas, TX" << endl;
 
 	do
