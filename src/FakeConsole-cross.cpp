@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <iostream>
+#include <unistd.h>
 
 using namespace std;
 void console();
@@ -28,7 +29,7 @@ int main()
 		
 		screenWipe();
 
-		cout << "\nRoom setup: Enter booking name for password: "; // getting setup info to change the first password in the escape room to the Name of the booking
+		cout << "\nROOM SETUP: Enter booking name for password: "; // getting setup info to change the first password in the escape room to the Name of the booking
 		
 		getline(cin, password);
 
@@ -186,14 +187,13 @@ void ext0918()
 
 void ext1925()
 {
-	screenWipe();
-
-	cout << "WARNING WARNING WARNING \nYou have accessed a restricted file. \nYour location has been noted and military police are en route. \nETA 1 minute. \nPlease surrender peacefully!" << endl;
-	
-	do
+	for (int i = 120; i > 0; i--)
 	{
-		cout << "\n\nPress return to continue..." << endl;
-	} while (cin.get() != '\n');
+		screenWipe();
+
+		cout << "WARNING WARNING WARNING \nYou have accessed a restricted file. \nYour location has been noted and military police are en route. \nETA " << i << " seconds. \nPlease surrender peacefully!" << endl;
+		sleep(1);
+	}
 
 	screenWipe();
 }
