@@ -8,10 +8,10 @@
 using namespace std;
 void console();
 void graphic_display();
-void ext7513();
-void ext4900();
-void ext0918();
-void ext1925();
+//void ext7513(); //removed to hard copy
+//void ext4900(); //removed to phone
+void morse_code();
+//void ext1925(); //removed to keypad
 void screenWipe();
 
 int main()
@@ -79,8 +79,7 @@ void console()
     //Variables
     string con_input;
 	
-	cout << "\nFor command list type 'help' \n"; // To list the possible inputs, all non-listed inputs will result in an error message.
-	cout << "\n type dir or ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
+	cout << "\n type dir or ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n"; // Leading info for users to work with unfamiliar commands.
     
 	while(1)
     {
@@ -89,28 +88,40 @@ void console()
 		getline (cin,con_input);
         
 		if (con_input == "help")
-			cout << "\n type dir or ls for directory listing \ntype: write <file name> to print text to screen \ntype dial <extension number> to retrieve voice to text mail"; // Leading info for users to work with unfamiliar commands.
+			cout << "\n type dir or ls for directory listing \ntype: write <file name> to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
 		else if (con_input == "ls"||con_input == "dir")
 			cout << "\n\n Directory listing: \n weapondoc.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
 		else if (con_input == "write weapondoc.txt"||con_input=="write weapondoc")
 			graphic_display();
-		else if (con_input == "dial 7513")
+		/*else if (con_input == "dial 7513")
 		{
 			ext7513();
 		}
 		else if (con_input == "dial 4900")
 		{
 			ext4900();
-		}
-		else if (con_input == "dial 0918"||con_input == "dial 918")
+		}*/ //removed to hard copy and phone
+		else if (con_input == "write .morse_code.txt"||"write .morse_code)
 		{
-			ext0918();
+			morse_code();
 		}
-		else if (con_input == "dial 1925")
+		else if (con_input == "ls -a" || con_input == "dir /a")
+		{
+			cout << "\n\n Directory listing: \n .morse_code.txt \n weapondoc.txt \n 2 files, 1 hidden, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
+		}
+		else if (con_input == "help ls"|| con_input == "man ls"
+		{
+			cout << "Displays a list of files and subdirectories in a directory. \n ls [options] \n\n -a Show all files, including hidden. \nerr c0rяup data\n" << endl;
+		}
+		else if (con_input == "help dir")
+		{
+			cout << "Displays a list of files and subdirectories in a directory. \n dir [options] \n\n /a Show all files, including hidden. \nerr c0rяup data\n" << endl;
+		}
+		/*else if (con_input == "dial 1925")
 		{
 			ext1925();
 			return;
-		}
+		} */ //removed to keypad
 		else
 			cout << "\n\nCommand not recognised" << endl;
     }
@@ -128,7 +139,7 @@ void graphic_display()
 	cout << "4. Currently Project E.S.C.R.M is being overseen by Stewart Littleton, one of the \nfinest minds in the world on rocketry and propulsion. He has set a very strict time \ntable and we have encountered some issues with supplying the required parts for him, \nwe hope to get back on schedule by mid month.\n" << endl;
 	cout << "5.  General Coulton has requested that he be contacted when Project E.S.C.R.M is at \n90% completion, he wishes to tour the facility to ensure everything is up to \nstandards. He can be reached at EXT 0918 during normal business hours.\n" << endl;
 	cout << "6. The current time table sets the completion of the device on November 20th at 06:00 \nhours, however with current delays we may not see completion until next spring. All \nfunding has been diverted to Project E.S.C.R.M to help rectify this.\n" << endl;
-	cout << "  1A: Officers note, we have changed the control password on the weapons cage to \nthe following 06751 going forward the control password will change every month, new \npasswords will be distributed by courier to all authorized officers." << endl;
+	cout << "  1A: Officers note, we have changed the control password on the weapons cage to \nthe following 06751 going forward the control password will change every month, new \npasswords will be distributed by courier to Untitled eventall authorized officers." << endl;
 	cout << "Report Complete \nSergeant Louis Benton \nUSAF - Wallaby Base" << endl;
 	do
 	{
@@ -138,7 +149,7 @@ void graphic_display()
 	screenWipe();
 }
 
-void ext7513()
+/*void ext7513() //removed to put on hard copy
 {
 	screenWipe();
 	
@@ -155,9 +166,9 @@ void ext7513()
 	} while (cin.get() != '\n');
 	
 	screenWipe();
-}
+}*/
 
-void ext4900()
+/*void ext4900() //removed to put on simple phone
 {
 	screenWipe();
 
@@ -169,13 +180,13 @@ void ext4900()
 	} while (cin.get() != '\n');
 
 	screenWipe();
-}
+}*/
 
-void ext0918()
+void morse_code()
 {
 	screenWipe();
-
-	cout << "_ . . . \n. . _ \n. . . \n_" << endl;
+	
+	cout << "The following message was intercepted: \n_ . . . \n. . _ \n. . . \n_ \nMessage ends." << endl;
 	
 	do
 	{
@@ -185,7 +196,7 @@ void ext0918()
 	screenWipe();
 }
 
-void ext1925()
+/*void ext1925() //removed to keypad
 {
 	for (int i = 120; i > 0; i--)
 	{
@@ -196,7 +207,7 @@ void ext1925()
 	}
 
 	screenWipe();
-}
+}*/
 
 void screenWipe()
 {
