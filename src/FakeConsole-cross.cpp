@@ -13,6 +13,7 @@ void graphic_display();
 void morse_code();
 //void ext1925(); //removed to keypad
 void screenWipe();
+void castLower(string convert);//to change mixed case to lower case to remove case sensitivity
 
 int main()
 {
@@ -32,7 +33,7 @@ int main()
 		cout << "\nROOM SETUP: Enter booking name for password: "; // getting setup info to change the first password in the escape room to the Name of the booking
 		
 		getline(cin, password);
-
+		castLower(password);
 		screenWipe();
 		
 		//ASCII output of breakout logo
@@ -52,7 +53,7 @@ int main()
 				cout << "\nSystem locked.  Enter user's first name:  ";
 				
 				getline(cin, user_pass);
-				
+				castLower(user_pass);
 				if (user_pass == "e x i t")
 					break;
 				if (user_pass == password)
@@ -79,7 +80,7 @@ void console()
     //Variables
     string con_input;
 	
-	cout << "\n type dir or ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n"; // Leading info for users to work with unfamiliar commands.
+	cout << "\n type dir or ls for directory listing \n cd for change directory \n type file name to print text to screen \n"; // Leading info for users to work with unfamiliar commands.
     
 	while(1)
     {
@@ -88,10 +89,10 @@ void console()
 		getline (cin,con_input);
         
 		if (con_input == "help")
-			cout << "\n type dir or ls for directory listing \ntype: write <file name> to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
+			cout << "\n type dir or ls for directory listing \ntype file name to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
 		else if (con_input == "ls"||con_input == "dir")
 			cout << "\n\n Directory listing: \n weapondoc.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
-		else if (con_input == "write weapondoc.txt"||con_input=="write weapondoc")
+		else if (con_input == "weapondoc.txt"||con_input=="weapondoc")
 			graphic_display();
 		/*else if (con_input == "dial 7513")
 		{
@@ -101,7 +102,7 @@ void console()
 		{
 			ext4900();
 		}*/ //removed to hard copy and phone
-		else if (con_input == "write .morse_code.txt"||"write .morse_code)
+		else if (con_input == ".morse_code.txt"||".morse_code)
 		{
 			morse_code();
 		}
@@ -216,4 +217,97 @@ void screenWipe()
 		cout << "\n";
 	}
 
+}
+
+void castLower(string convert)
+{
+	int strLen;
+	strLen = strlen(convert);
+	for (int i = 0; i < strLen; i++)
+	{
+		switch (convert[i])
+		{
+			case 'A':
+				convert[i] = 'a';
+				break;
+			case 'B':
+				convert[i] = 'b';
+				break;
+			case 'C':
+				convert[i] = 'c';
+				break;
+			case 'D':
+				convert[i] = 'd';
+				break;
+			case 'E':
+				convert[i] = 'e';
+				break;
+			case 'F':
+				convert[i] = 'f';
+				break;
+			case 'G':
+				convert[i] = 'g';
+				break;
+			case 'H':
+				convert[i] = 'h';
+				break;
+			case 'I':
+				convert[i] = 'i';
+				break;
+			case 'J':
+				convert[i] = 'j';
+				break;
+			case 'K':
+				convert[i] = 'k';
+				break;
+			case 'L':
+				convert[i] = 'l';
+				break;
+			case 'M':
+				convert[i] = 'm';
+				break;
+			case 'N':
+				convert[i] = 'n';
+				break;
+			case 'O':
+				convert[i] = 'o';
+				break;
+			case 'P':
+				convert[i] = 'p';
+				break;
+			case 'Q':
+				convert[i] = 'q';
+				break;
+			case 'R':
+				convert[i] = 'r';
+				break;
+			case 'S':
+				convert[i] = 's';
+				break;
+			case 'T':
+				convert[i] = 't';
+				break;
+			case 'U':
+				convert[i] = 'u';
+				break;
+			case 'V':
+				convert[i] = 'v';
+				break;
+			case 'W':
+				convert[i] = 'w';
+				break;
+			case 'X':
+				convert[i] = 'x';
+				break;
+			case 'Y':
+				convert[i] = 'y';
+				break;
+			case 'Z':
+				convert[i] = 'z';
+				break;
+			default:
+				break;
+		}
+	}
+	return;
 }
