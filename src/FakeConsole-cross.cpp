@@ -11,7 +11,7 @@ void console();
 void graphic_display();
 void morse_code();
 void screenWipe();
-void castLower(string convert);//to change mixed case to lower case to remove case sensitivity
+//void castLower(string convert);//to change mixed case to lower case to remove case sensitivity
 
 int main()
 {
@@ -31,7 +31,10 @@ int main()
 		cout << "\nROOM SETUP: Enter booking name for password: "; // getting setup info to change the first password in the escape room to the Name of the booking
 		
 		getline(cin, password);
-		//castLower(&password);
+		for (int i = 0; i < password.length(); i++)
+		{
+			password[i] = tolower(password[i]);
+		}
 		screenWipe();
 		
 		//ASCII output of breakout logo
@@ -48,10 +51,13 @@ int main()
 			
 			for (pass_fail = 1,user_pass = "default"; user_pass != password; pass_fail++)
 			{
-				cout << "\nSystem locked.  Enter user's first name:  ";
+				cout << "\nSystem locked.  Enter user's first name: ";
 				
 				getline(cin, user_pass);
-				//castLower(&user_pass);
+				for (int i = 0; i < user_pass.length(); i++)
+				{
+					user_pass[i] = tolower(user_pass[i]);
+				}
 				if (user_pass == "e x i t")
 					break;
 				if (user_pass == password)
@@ -85,7 +91,10 @@ void console()
 		cout << "\nFor command list type 'help' \n"; // To list the possible inputs, all non-listed inputs will result in an error message.
 		cout << "\n~"; // Linux/Unix style command shell, since Unix is older than DOS, but quite similar in useage - could be changed to C:\ or other drive letter as necessary.
 		getline (cin,con_input);
-		//castLower(&con_input);
+		for (int i = 0; i < con_input.length(); i++)
+		{
+			con_input[i] = tolower(con_input[i]);
+		}
 		if (con_input == "help")
 			cout << "\n type dir or ls for directory listing \ntype file name to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
 		else if (con_input == "ls"||con_input == "dir")
@@ -162,93 +171,11 @@ void screenWipe()
 
 }
 
-void castLower(string *convert)
+/*void castLower(string convert)
 {
 	for (int i = 0; i < convert.length(); i++)
 	{
-		switch (convert[i])
-		{
-			case 'A':
-				convert[i] = 'a';
-				break;
-			case 'B':
-				convert[i] = 'b';
-				break;
-			case 'C':
-				convert[i] = 'c';
-				break;
-			case 'D':
-				convert[i] = 'd';
-				break;
-			case 'E':
-				convert[i] = 'e';
-				break;
-			case 'F':
-				convert[i] = 'f';
-				break;
-			case 'G':
-				convert[i] = 'g';
-				break;
-			case 'H':
-				convert[i] = 'h';
-				break;
-			case 'I':
-				convert[i] = 'i';
-				break;
-			case 'J':
-				convert[i] = 'j';
-				break;
-			case 'K':
-				convert[i] = 'k';
-				break;
-			case 'L':
-				convert[i] = 'l';
-				break;
-			case 'M':
-				convert[i] = 'm';
-				break;
-			case 'N':
-				convert[i] = 'n';
-				break;
-			case 'O':
-				convert[i] = 'o';
-				break;
-			case 'P':
-				convert[i] = 'p';
-				break;
-			case 'Q':
-				convert[i] = 'q';
-				break;
-			case 'R':
-				convert[i] = 'r';
-				break;
-			case 'S':
-				convert[i] = 's';
-				break;
-			case 'T':
-				convert[i] = 't';
-				break;
-			case 'U':
-				convert[i] = 'u';
-				break;
-			case 'V':
-				convert[i] = 'v';
-				break;
-			case 'W':
-				convert[i] = 'w';
-				break;
-			case 'X':
-				convert[i] = 'x';
-				break;
-			case 'Y':
-				convert[i] = 'y';
-				break;
-			case 'Z':
-				convert[i] = 'z';
-				break;
-			default:
-				break;
-		}
+		convert[i] = tolower(convert[i]);
 	}
 	return;
-}
+}*/
