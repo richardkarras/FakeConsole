@@ -99,7 +99,7 @@ void console()
 			cout << "\n type dir or ls for directory listing \ntype file name to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
 		else if (con_input == "ls"||con_input == "dir")
 			cout << "\n\n Directory listing: \n weapon.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
-		else if (con_input == "weapondoc.txt"||con_input=="weapondoc")
+		else if (con_input == "weapon.txt"||con_input=="weapon")
 			graphic_display();
 		else if (con_input == "secret.txt"||con_input == "secret")
 		{
@@ -107,7 +107,7 @@ void console()
 		}
 		else if (con_input == "ls -a" || con_input == "dir /a")
 		{
-			cout << "\n\n Directory listing: \n secret.txt \n weapondoc.txt \n 2 files, 1 hidden, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue and morse code clue.
+			cout << "\n\n Directory listing: \n secret.txt \n weapon.txt \n 2 files, 1 hidden, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue and morse code clue.
 		}
 		else if (con_input == "help ls"|| con_input == "man ls")
 		{
