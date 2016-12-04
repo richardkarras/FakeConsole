@@ -11,7 +11,6 @@ void console();
 void graphic_display();
 void morse_code();
 void screenWipe();
-//void castLower(string convert);//to change mixed case to lower case to remove case sensitivity
 
 int main()
 {
@@ -98,32 +97,13 @@ void console()
 		if (con_input == "help")
 			cout << "\n type dir or ls for directory listing \ntype file name to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
 		else if (con_input == "ls"||con_input == "dir")
-<<<<<<< HEAD
 			cout << "\n\n Directory listing: \n secret.txt \n weapon.txt \n 2 files, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
-=======
-			cout << "\n\n Directory listing: \n weapon.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
->>>>>>> master
 		else if (con_input == "weapon.txt"||con_input=="weapon")
 			graphic_display();
 		else if (con_input == "secret.txt"||con_input == "secret")
 		{
 			morse_code();
 		}
-<<<<<<< HEAD
-=======
-		else if (con_input == "ls -a" || con_input == "dir /a")
-		{
-			cout << "\n\n Directory listing: \n secret.txt \n weapon.txt \n 2 files, 1 hidden, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue and morse code clue.
-		}
-		else if (con_input == "help ls"|| con_input == "man ls")
-		{
-			cout << "Displays a list of files and subdirectories in a directory. \n ls [options] \n\n -a Show all files, including hidden. \nerr c0rяup data\n" << endl;
-		}
-		else if (con_input == "help dir")
-		{
-			cout << "Displays a list of files and subdirectories in a directory. \n dir [options] \n\n /a Show all files, including hidden. \nerr c0rяup data\n" << endl;
-		}
->>>>>>> master
 		else if (con_input == "e x i t")
 		{
 			return;
@@ -177,12 +157,3 @@ void screenWipe()
 	}
 
 }
-
-/*void castLower(string convert)
-{
-	for (int i = 0; i < convert.length(); i++)
-	{
-		convert[i] = tolower(convert[i]);
-	}
-	return;
-}*/
