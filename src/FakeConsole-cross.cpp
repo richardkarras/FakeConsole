@@ -4,15 +4,14 @@
 #include <sstream>
 #include <iostream>
 #include <unistd.h>
+#include <cstring>
 
 using namespace std;
 void console();
 void graphic_display();
-//void ext7513(); //removed to hard copy
-//void ext4900(); //removed to phone
 void morse_code();
-//void ext1925(); //removed to keypad
 void screenWipe();
+//void castLower(string convert);//to change mixed case to lower case to remove case sensitivity
 
 int main()
 {
@@ -32,7 +31,10 @@ int main()
 		cout << "\nROOM SETUP: Enter booking name for password: "; // getting setup info to change the first password in the escape room to the Name of the booking
 		
 		getline(cin, password);
-
+		for (int i = 0; i < password.length(); i++)
+		{
+			password[i] = tolower(password[i]);
+		}
 		screenWipe();
 		
 		//ASCII output of breakout logo
@@ -49,10 +51,13 @@ int main()
 			
 			for (pass_fail = 1,user_pass = "default"; user_pass != password; pass_fail++)
 			{
-				cout << "\nSystem locked.  Enter user's first name:  ";
+				cout << "\nSystem locked.  Enter user's first name: ";
 				
 				getline(cin, user_pass);
-				
+				for (int i = 0; i < user_pass.length(); i++)
+				{
+					user_pass[i] = tolower(user_pass[i]);
+				}
 				if (user_pass == "e x i t")
 					break;
 				if (user_pass == password)
@@ -79,47 +84,29 @@ void console()
     //Variables
     string con_input;
 	
-	cout << "\n type dir or ls for directory listing \n cd for change directory \n write <file name> to print text to screen \n"; // Leading info for users to work with unfamiliar commands.
+	cout << "\n type dir or ls for directory listing \n cd for change directory \n type file name to print text to screen \n"; // Leading info for users to work with unfamiliar commands.
     
 	while(1)
     {
 		cout << "\nFor command list type 'help' \n"; // To list the possible inputs, all non-listed inputs will result in an error message.
 		cout << "\n~"; // Linux/Unix style command shell, since Unix is older than DOS, but quite similar in useage - could be changed to C:\ or other drive letter as necessary.
 		getline (cin,con_input);
-        
-		if (con_input == "help")
-			cout << "\n type dir or ls for directory listing \ntype: write <file name> to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
-		else if (con_input == "ls"||con_input == "dir")
-			cout << "\n\n Directory listing: \n weapondoc.txt \n 1 file, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
-		else if (con_input == "write weapondoc.txt"||con_input=="write weapondoc")
-			graphic_display();
-		/*else if (con_input == "dial 7513")
+		for (int i = 0; i < con_input.length(); i++)
 		{
-			ext7513();
+			con_input[i] = tolower(con_input[i]);
 		}
-		else if (con_input == "dial 4900")
-		{
-			ext4900();
-		}*/ //removed to hard copy and phone
-		else if (con_input == "write .morse_code.txt"||"write .morse_code)
+		if (con_input == "help")
+			cout << "\n type dir or ls for directory listing \ntype file name to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
+		else if (con_input == "ls"||con_input == "dir")
+			cout << "\n\n Directory listing: \n secret.txt \n weapon.txt \n 2 files, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
+		else if (con_input == "weapon.txt"||con_input=="weapon")
+			graphic_display();
+		else if (con_input == "secret.txt"||con_input == "secret")
 		{
 			morse_code();
 		}
-		else if (con_input == "ls -a" || con_input == "dir /a")
+		else if (con_input == "e x i t")
 		{
-			cout << "\n\n Directory listing: \n .morse_code.txt \n weapondoc.txt \n 2 files, 1 hidden, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
-		}
-		else if (con_input == "help ls"|| con_input == "man ls"
-		{
-			cout << "Displays a list of files and subdirectories in a directory. \n ls [options] \n\n -a Show all files, including hidden. \nerr c0rяup data\n" << endl;
-		}
-		else if (con_input == "help dir")
-		{
-			cout << "Displays a list of files and subdirectories in a directory. \n dir [options] \n\n /a Show all files, including hidden. \nerr c0rяup data\n" << endl;
-		}
-		/*else if (con_input == "dial 1925")
-		{
-			ext1925();
 			return;
 		} */ //removed to keypad
 		else
@@ -149,39 +136,6 @@ void graphic_display()
 	screenWipe();
 }
 
-/*void ext7513() //removed to put on hard copy
-{
-	screenWipe();
-	
-	cout << "\nColonel Jonston's travel itinerary:" << endl;
-	cout << "June 26-30: Travel to Miami re: Mission: Impossible" << endl;
-	cout << "July 3: Col J. Travel to Dallas with his wife to visit family." << endl;
-	cout << "July 7: Col J. New York re: PROJECT SWIPE" << endl;
-	cout << "July 10: Col J. Leaves New York, travels to San Francisco to complete plans for Mission: Impossible" << endl;
-	cout << "July 18: Col J. FT HARRIS AIR FORCE BASE Dallas, TX" << endl;
-
-	do
-	{
-		cout << "\n\nPress return to continue..." << endl;
-	} while (cin.get() != '\n');
-	
-	screenWipe();
-}*/
-
-/*void ext4900() //removed to put on simple phone
-{
-	screenWipe();
-
-	cout << "Archive Room 2 has reported that they are missing a key for the desk. They called it in \nto maintenance. There seems to be some confusion as maintenance reported on it as well \nbut when I check the report, it was about issues with the wall. \nThis requires additional follow up" << endl;
-
-	do
-	{
-		cout << "\n\nPress return to continue..." << endl;
-	} while (cin.get() != '\n');
-
-	screenWipe();
-}*/
-
 void morse_code()
 {
 	screenWipe();
@@ -194,19 +148,6 @@ void morse_code()
 	} while (cin.get() != '\n');
 
 	screenWipe();
-}
-
-/*void ext1925() //removed to keypad
-{
-	for (int i = 120; i > 0; i--)
-	{
-		screenWipe();
-
-		cout << "WARNING WARNING WARNING \nYou have accessed a restricted file. \nYour location has been noted and military police are en route. \nETA " << i << " seconds. \nPlease surrender peacefully!" << endl;
-		sleep(1);
-	}
-
-	screenWipe();
 }*/
 
 void screenWipe()
@@ -217,3 +158,12 @@ void screenWipe()
 	}
 
 }
+
+/*void castLower(string convert)
+{
+	for (int i = 0; i < convert.length(); i++)
+	{
+		convert[i] = tolower(convert[i]);
+	}
+	return;
+}*/
