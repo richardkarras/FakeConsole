@@ -11,6 +11,8 @@ void console();
 void graphic_display();
 void morse_code();
 void screenWipe();
+void allegiance();
+//void castLower(string convert);//to change mixed case to lower case to remove case sensitivity
 
 int main()
 {
@@ -104,10 +106,14 @@ void console()
 		{
 			morse_code();
 		}
+		else if (con_input == "allegiance")
+		{
+			allegiance();
+		}
 		else if (con_input == "e x i t")
 		{
 			return;
-		}
+		} 
 		else
 			cout << "\n\nCommand not recognised" << endl;
     }
@@ -156,4 +162,32 @@ void screenWipe()
 		cout << "\n";
 	}
 
+}
+
+/*void castLower(string convert)
+{
+	for (int i = 0; i < convert.length(); i++)
+	{
+		convert[i] = tolower(convert[i]);
+	}
+	return;
+}*/
+void allegiance()
+{
+	screenWipe();
+	
+	cout << "THIS IS NOT A GAME. THIS IS REAL.\n" << endl;
+	cout << "You two are trying to get out of this room. And the clock is ticking. But beware! He has not intention of letting you break out from him.\n" << endl;
+	cout << "This man locked in this room with you is not here for just the game. He has ulterior motives. He is in love with you, and he wants to spend the rest of his life with you.\n" << endl;
+	cout << "He wants to lock the two hearts permanently. Forever and always.\n" << endl;
+	cout << "The Doctor and her Companion.\n" << endl;
+	cout << "The Dragon and his Princess.\n\n\n" << endl;
+	cout << "One Question.  One Answer.\n" << endl;
+	cout << "Sharmin\n\nWill you marry me?" << endl;
+	do
+	{
+		cout << "\n\nPress return to continue..." << endl;
+	} while (cin.get() != '\n');
+
+	screenWipe();
 }
