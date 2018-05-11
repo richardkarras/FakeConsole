@@ -84,7 +84,7 @@ void console()
     //Variables
     string con_input;
 	
-	cout << "\n type dir or ls for directory listing \n cd for change directory \n type file name to print text to screen \n"; // Leading info for users to work with unfamiliar commands.
+	cout << "\n type DIR or DIRECTORY for directory listing \n type file name to print text to screen \n"; // Leading info for users to work with unfamiliar commands.
     
 	while(1)
     {
@@ -96,8 +96,8 @@ void console()
 			con_input[i] = tolower(con_input[i]);
 		}
 		if (con_input == "help")
-			cout << "\n type dir or ls for directory listing \ntype file name to print text to screen \n for options on commands type 'help <command>'\n"; // Leading info for users to work with unfamiliar commands.
-		else if (con_input == "ls"||con_input == "dir")
+			cout << "\n type DIR or DIRECTORY for directory listing \ntype file name to print text to screen\n"; // Leading info for users to work with unfamiliar commands.
+		else if (con_input == "directory"||con_input == "dir")
 			cout << "\n\n Directory listing: \n secret.txt \n weapon.txt \n 2 files, 0 folders \n "; // Output "directory listing" to allow participants to attempt to open the photo clue.
 		else if (con_input == "weapon.txt"||con_input=="weapon")
 			graphic_display();
@@ -140,8 +140,9 @@ void morse_code()
 {
 	screenWipe();
 	
-	cout << "The following message was intercepted: \n_ . . . \n. . _ \n. . . \n_ \nMessage ends." << endl;
-	
+	cout << "The following message was intercepted: \n_ . . . \n. _ \n. . . \n. \n\nMessage ends." << endl;
+
+
 	do
 	{
 		cout << "\n\nPress return to continue..." << endl;
